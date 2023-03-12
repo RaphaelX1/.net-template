@@ -2,13 +2,14 @@
 using Architecture.Template.Application.TodoItem.Commands.DeleteTodoItem;
 using Architecture.Template.Application.TodoItem.Commands.UpdateTodoItem;
 using Architecture.Template.Application.TodoItem.Commands.UpdateTodoItemDetail;
+using Architecture.Template.WebApi.Common;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Architecture.Template.WebApi.Controllers;
 
 //TODO: voltar quando fazer teste de autorização
 //[Authorize]
-public class TodoItemsController : ApiControllerBase
+public class TodoItemController : ApiControllerBase
 {
     //[HttpGet]//TODO: criar o pagination com o IQueryble component
     //public async Task<ActionResult<PaginatedList<TodoItemBriefDto>>> GetTodoItemsWithPagination([FromQuery] GetTodoItemsWithPaginationQuery query)

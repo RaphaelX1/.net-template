@@ -2,18 +2,19 @@
 using Architecture.Template.Application.TodoList.Commands.DeleteTodoList;
 using Architecture.Template.Application.TodoList.Commands.UpdateTodoList;
 using Architecture.Template.Application.TodoList.Queries.GetTodos;
+using Architecture.Template.WebApi.Common;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Architecture.Template.WebApi.Controllers;
 
 //TODO: voltar quando fazer teste de autorização
 //[Authorize]
-public class TodoListsController : ApiControllerBase
+public class TodoListController : ApiControllerBase
 {
     [HttpGet]
     public async Task<ActionResult<TodosVm>> Get()
     {
-        return await Mediator.Send(new GetTodosQuery());
+        return await Mediator.Send(new GetTodoQuery());
     }
 
     //[HttpGet("{id}")] //TODO: criar o export CSV

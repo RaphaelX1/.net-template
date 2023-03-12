@@ -2,6 +2,6 @@
 
 namespace Architecture.Template.Application.TodoList.Queries.GetTodos;
 
-public class GetTodosQuery : IRequest<TodosVm>
+public class GetTodoQuery : IRequest<TodosVm>
 {
 }

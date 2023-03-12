@@ -5,7 +5,7 @@ using Architecture.Template.Domain.Interfaces.Repository;
 using MediatR;
 
 namespace Architecture.Template.Application.TodoList.Handlers;
-public class GetTodosQueryHandler : IRequestHandler<GetTodosQuery, TodosVm>
+public class GetTodosQueryHandler : IRequestHandler<GetTodoQuery, TodosVm>
 {
     private readonly ITodoListRepository todoListRepository;
     private readonly IMapper mapper;
@@ -16,7 +16,7 @@ public class GetTodosQueryHandler : IRequestHandler<GetTodosQuery, TodosVm>
         this.mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
     }
 
-    public async Task<TodosVm> Handle(GetTodosQuery request, CancellationToken cancellationToken)
+    public async Task<TodosVm> Handle(GetTodoQuery request, CancellationToken cancellationToken)
     {
         return new TodosVm
         {

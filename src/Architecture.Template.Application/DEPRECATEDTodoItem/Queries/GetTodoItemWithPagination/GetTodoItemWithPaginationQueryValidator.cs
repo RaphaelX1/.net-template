@@ -2,9 +2,9 @@
 
 namespace Architecture.Template.Application.TodoItem.Queries.GetTodoItemsWithPagination;
 
-public class GetTodoItemsWithPaginationQueryValidator : AbstractValidator<GetTodoItemsWithPaginationQuery>
+public class GetTodoItemWithPaginationQueryValidator : AbstractValidator<GetTodoItemWithPaginationQuery>
 {
-    public GetTodoItemsWithPaginationQueryValidator()
+    public GetTodoItemWithPaginationQueryValidator()
     {
         RuleFor(x => x.ListId)
             .NotEmpty().WithMessage("ListId is required.");

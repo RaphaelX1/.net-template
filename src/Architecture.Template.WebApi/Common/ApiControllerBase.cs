@@ -2,7 +2,7 @@
 
 using Microsoft.AspNetCore.Mvc;
 
-namespace Architecture.Template.WebApi.Controllers;
+namespace Architecture.Template.WebApi.Common;
 
 [ApiController]
 [Route("api/[controller]")]

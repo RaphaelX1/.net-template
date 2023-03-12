@@ -72,8 +72,8 @@ public class CreateTodoItemCommandHandlerTest
 
         fixture.Customize<TodoItemEntity>(c =>
             c.With(p => p.ListId, Guid.Parse("fe87aa6d-4ec8-4224-af21-59d8acffdf60"))
-            .With(p => p.Title, "teste")
-            .With(p => p.Id, Guid.Empty).With(p => p.List, new TodoListEntity()));
+            .With(p => p.Title, "teste");
+            //.With(p => p.Id, Guid.Empty).With(p => p.List, new TodoListEntity()));
 
         var entityToCreate = fixture.Create<TodoItemEntity>();
 

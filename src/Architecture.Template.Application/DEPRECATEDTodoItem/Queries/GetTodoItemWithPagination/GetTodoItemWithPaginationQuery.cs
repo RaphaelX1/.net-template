@@ -3,7 +3,7 @@
 namespace Architecture.Template.Application.TodoItem.Queries.GetTodoItemsWithPagination;
 
 //TODO: adicionar paginacao com o IQueryble package
-public class GetTodoItemsWithPaginationQuery : IRequest<TodoItemBriefDto>
+public class GetTodoItemWithPaginationQuery : IRequest<TodoItemBriefDto>
 {
     public int ListId { get; set; }
     public int PageNumber { get; set; } = 1;
