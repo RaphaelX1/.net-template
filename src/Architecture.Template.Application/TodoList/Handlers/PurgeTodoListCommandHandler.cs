@@ -6,16 +6,16 @@ namespace Architecture.Template.Application.TodoList.Handlers;
 
 public class PurgeTodoListCommandHandler : IRequestHandler<PurgeTodoListCommand>
 {
-    private readonly ITodoListRepository todoListRepository;
+    private readonly ITodoListRepository _todoListRepository;
 
     public PurgeTodoListCommandHandler(ITodoListRepository todoListRepository)
     {
-        this.todoListRepository = todoListRepository ?? throw new ArgumentNullException(nameof(todoListRepository));
+        this._todoListRepository = todoListRepository ?? throw new ArgumentNullException(nameof(todoListRepository));
     }
 
     public async Task<Unit> Handle(PurgeTodoListCommand request, CancellationToken cancellationToken)
     {
-        await todoListRepository.DeleteRangeAsync(await todoListRepository.SelectAllAsync(cancellationToken: cancellationToken));
+        await _todoListRepository.DeleteRangeAsync(await _todoListRepository.SelectAllAsync(cancellationToken: cancellationToken));
         return Unit.Value;//TODO: criar um DeleteAll e um SelectRange
     }
 }

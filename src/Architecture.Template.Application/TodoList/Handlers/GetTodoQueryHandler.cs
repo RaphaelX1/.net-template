@@ -7,13 +7,13 @@ using MediatR;
 namespace Architecture.Template.Application.TodoList.Handlers;
 public class GetTodosQueryHandler : IRequestHandler<GetTodoQuery, TodosVm>
 {
-    private readonly ITodoListRepository todoListRepository;
-    private readonly IMapper mapper;
+    private readonly ITodoListRepository _todoListRepository;
+    private readonly IMapper _mapper;
 
     public GetTodosQueryHandler(ITodoListRepository todoListRepository, IMapper mapper)
     {
-        this.todoListRepository = todoListRepository ?? throw new ArgumentNullException(nameof(todoListRepository));
-        this.mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
+        this._todoListRepository = todoListRepository ?? throw new ArgumentNullException(nameof(todoListRepository));
+        this._mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
     }
 
     public async Task<TodosVm> Handle(GetTodoQuery request, CancellationToken cancellationToken)
@@ -25,7 +25,7 @@ public class GetTodosQueryHandler : IRequestHandler<GetTodoQuery, TodosVm>
                 .Select(p => new PriorityLevelDto { Value = (int)p, Name = p.ToString() })
                 .ToList(),
 
-            Lists = mapper.Map<IList<TodoListDto>>(await todoListRepository.SelectAllAsync(cancellationToken: cancellationToken))
+            Lists = _mapper.Map<IList<TodoListDto>>(await _todoListRepository.SelectAllAsync(cancellationToken: cancellationToken))
         };
     }
 }

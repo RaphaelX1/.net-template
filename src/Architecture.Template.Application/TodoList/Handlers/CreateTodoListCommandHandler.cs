@@ -6,10 +6,10 @@ using MediatR;
 namespace Architecture.Template.Application.TodoList.Handlers;
 public class CreateTodoListCommandHandler : IRequestHandler<CreateTodoListCommand, Guid>
 {
-    private readonly ITodoListRepository todoListRepository;
+    private readonly ITodoListRepository _todoListRepository;
 
     public CreateTodoListCommandHandler(ITodoListRepository todoListRepository) =>
-        this.todoListRepository = todoListRepository ?? throw new ArgumentNullException(nameof(todoListRepository));
+        this._todoListRepository = todoListRepository ?? throw new ArgumentNullException(nameof(todoListRepository));
 
     public async Task<Guid> Handle(CreateTodoListCommand request, CancellationToken cancellationToken)
     {
@@ -18,7 +18,7 @@ public class CreateTodoListCommandHandler : IRequestHandler<CreateTodoListComman
             Title = request.Title
         };
 
-        await todoListRepository.InsertAsync(entity, cancellationToken);
+        await _todoListRepository.InsertAsync(entity, cancellationToken);
 
         return entity.Id;
     }

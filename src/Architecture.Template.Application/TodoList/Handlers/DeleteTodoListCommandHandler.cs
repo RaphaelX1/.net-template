@@ -8,14 +8,14 @@ namespace Architecture.Template.Application.TodoList.Handlers;
 
 public class DeleteTodoListCommandHandler : IRequestHandler<DeleteTodoListCommand>
 {
-    private readonly ITodoListRepository todoListRepository;
+    private readonly ITodoListRepository _todoListRepository;
 
     public DeleteTodoListCommandHandler(ITodoListRepository todoListRepository) =>
-        this.todoListRepository = todoListRepository ?? throw new ArgumentNullException(nameof(todoListRepository));
+        this._todoListRepository = todoListRepository ?? throw new ArgumentNullException(nameof(todoListRepository));
 
     public async Task<Unit> Handle(DeleteTodoListCommand request, CancellationToken cancellationToken)
     {
-        return await todoListRepository.DeleteAsync(l => l.Id.Equals(request.Id), cancellationToken)
+        return await _todoListRepository.DeleteAsync(l => l.Id.Equals(request.Id), cancellationToken)
             ? Unit.Value
             : throw new NotFoundException(nameof(TodoListEntity), request.Id);
     }
