@@ -10,10 +10,8 @@ public class Colour : ValueObject
     {
     }
 
-    private Colour(string code)
-    {
+    private Colour(string code) =>
         Code = code;
-    }
 
     public static Colour From(string code)
     {
@@ -40,14 +38,11 @@ public class Colour : ValueObject
 
     public string Code { get; private set; } = "#000000";
 
-    public static implicit operator string(Colour colour) =>
-        colour.ToString();
+    public static implicit operator string(Colour colour) => colour.ToString();
 
-    public static explicit operator Colour(string code) =>
-        From(code);
+    public static explicit operator Colour(string code) => From(code);
 
-    public override string ToString() =>
-         Code;
+    public override string ToString() => Code;
 
     protected static IEnumerable<Colour> SupportedColours
     {

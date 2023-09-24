@@ -4,7 +4,7 @@ using Architecture.Template.Infrastructure.Context;
 using Microsoft.EntityFrameworkCore;
 
 namespace Architecture.Template.Infrastructure.Common;
-public partial class BaseRepository<T> : IBaseRepository<T> where T : AuditableEntity
+public partial class BaseRepository<T> : IBaseRepository<T> where T : BaseAuditableEntity
 {
     protected readonly ApplicationDbContext context;
     protected readonly DbSet<T> dataset;

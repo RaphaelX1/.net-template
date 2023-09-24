@@ -1,6 +1,6 @@
 ﻿namespace Architecture.Template.Domain.Entities;
 
-public class TodoListEntity : AuditableEntity
+public class TodoListEntity : BaseAuditableEntity
 {
     public string? Title { get; set; }
 

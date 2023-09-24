@@ -1,10 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
+using Hdn.Core.Architecture.Domain.Events;
 
 namespace Architecture.Template.Domain.Entities;
 
-public class TodoItemEntity : AuditableEntity
+public class TodoItemEntity : BaseAuditableEntity
 {
+
     public Guid ListId { get; set; }
 
     public string? Title { get; set; }
@@ -15,5 +17,17 @@ public class TodoItemEntity : AuditableEntity
 
     public DateTime? Reminder { get; set; }
 
-    //public TodoListEntity List { get; set; } = null!;
+
+    private bool _done;
+    public bool Done
+    {
+        get => _done; set
+        {
+
+            if (value && !_done)
+                AddDomainEvent(new TodoItemCompletedEvent(this));
+        }
+    }
+
+    public TodoListEntity List { get; set; } = null!;
 }

@@ -2,7 +2,7 @@
 
 namespace Architecture.Template.Domain.Common;
 
-public interface IBaseRepository<T> : IDisposable where T : AuditableEntity
+public interface IBaseRepository<T> : IDisposable where T : BaseAuditableEntity
 {
     Task<T> InsertAsync(T item, CancellationToken cancellationToken = default);
     Task<IEnumerable<T>> InsertRangeAsync(IEnumerable<T> itemCollection, CancellationToken cancellationToken = default);

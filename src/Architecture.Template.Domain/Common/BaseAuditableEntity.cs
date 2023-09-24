@@ -1,6 +1,8 @@
-﻿namespace Architecture.Template.Domain.Common;
+﻿using Hdn.Core.Architecture.Domain.Common;
 
-public abstract class AuditableEntity
+namespace Architecture.Template.Domain.Common;
+
+public abstract class BaseAuditableEntity: BaseEntity
 {
     public Guid Id { get; set; }
     public DateTime Created { get; set; }
