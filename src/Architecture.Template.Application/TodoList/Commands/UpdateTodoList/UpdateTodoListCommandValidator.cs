@@ -1,5 +1,5 @@
-﻿using FluentValidation;
-using Architecture.Template.Domain.Interfaces.Repository;
+﻿using Architecture.Template.Domain.Interfaces.Repository;
+using FluentValidation;
 
 namespace Architecture.Template.Application.TodoList.Commands.UpdateTodoList;
 

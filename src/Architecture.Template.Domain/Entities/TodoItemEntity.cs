@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.Text.Json.Serialization;
-using Hdn.Core.Architecture.Domain.Events;
+﻿using Hdn.Core.Architecture.Domain.Events;
 
 namespace Architecture.Template.Domain.Entities;
 

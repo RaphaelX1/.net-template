@@ -1,9 +1,9 @@
 ﻿using System.Text.Json.Serialization;
-using FluentValidation.AspNetCore;
 using Architecture.Template.Application.DependencyInjection;
 using Architecture.Template.Infrastructure.Context;
 using Architecture.Template.Infrastructure.DependencyInjection;
 using Architecture.Template.WebApi.Filters;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Identity.Web;

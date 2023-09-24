@@ -1,6 +1,6 @@
-﻿using AutoMapper;
-using Architecture.Template.Application.Common.Mappings;
+﻿using Architecture.Template.Application.Common.Mappings;
 using Architecture.Template.Domain.Entities;
+using AutoMapper;
 
 namespace Architecture.Template.Application.TodoList.Queries.GetTodos;
 

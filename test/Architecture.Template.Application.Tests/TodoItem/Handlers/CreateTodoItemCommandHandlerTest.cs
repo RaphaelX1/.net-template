@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
-using AutoFixture;
-using FluentAssertions;
 using Architecture.Template.Application.TodoItem.Commands.CreateTodoItem;
 using Architecture.Template.Application.TodoItem.Handlers;
 using Architecture.Template.Domain.Entities;
 using Architecture.Template.Domain.Interfaces.Repository;
+using AutoFixture;
+using FluentAssertions;
 using Moq;
 using Xunit;
 

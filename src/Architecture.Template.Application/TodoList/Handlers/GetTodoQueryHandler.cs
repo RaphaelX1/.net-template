@@ -1,7 +1,7 @@
-﻿using AutoMapper;
-using Architecture.Template.Application.TodoList.Queries.GetTodos;
+﻿using Architecture.Template.Application.TodoList.Queries.GetTodos;
 using Architecture.Template.Domain.Enums;
 using Architecture.Template.Domain.Interfaces.Repository;
+using AutoMapper;
 using MediatR;
 
 namespace Architecture.Template.Application.TodoList.Handlers;
