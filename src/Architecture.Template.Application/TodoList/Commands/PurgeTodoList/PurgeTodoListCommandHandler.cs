@@ -1,5 +1,4 @@
 ﻿using Domain.Interfaces.Repository;
-using MediatR;
 
 namespace Application.TodoList.Commands.PurgeTodoList;
 

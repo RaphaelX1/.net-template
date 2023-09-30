@@ -1,7 +1,7 @@
 ﻿using Application.TodoList.Commands.CreateTodoList;
+using Application.TodoList.Commands.DeleteTodoList;
 using Application.TodoList.Commands.UpdateTodoList;
 using Application.TodoList.Queries.GetTodo;
-using Application.TodoList.Commands.DeleteTodoList;
 using Microsoft.AspNetCore.Mvc;
 using WebApi.Common;
 

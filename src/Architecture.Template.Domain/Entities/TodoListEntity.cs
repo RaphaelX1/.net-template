@@ -1,7 +1,4 @@
-﻿using Domain.Common;
-using Domain.ValueObjects;
-
-namespace Domain.Entities;
+﻿namespace Domain.Entities;
 
 public class TodoListEntity : BaseAuditableEntity
 {

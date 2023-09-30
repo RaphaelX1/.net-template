@@ -1,6 +1,4 @@
-﻿using Domain.Common;
-
-namespace Domain.ValueObjects;
+﻿namespace Domain.ValueObjects;
 
 public class Colour : ValueObject
 {

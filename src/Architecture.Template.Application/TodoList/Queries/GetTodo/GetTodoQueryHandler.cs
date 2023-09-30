@@ -1,7 +1,5 @@
-﻿using AutoMapper;
-using Domain.Enums;
+﻿using Domain.Enums;
 using Domain.Interfaces.Repository;
-using MediatR;
 
 namespace Application.TodoList.Queries.GetTodo;
 public class GetTodosQueryHandler : IRequestHandler<GetTodoQuery, TodosVm>

@@ -1,7 +1,4 @@
-﻿using Domain.Common;
-using Domain.Entities;
-
-namespace Domain.Events;
+﻿namespace Domain.Events;
 public class TodoItemDeletedEvent : BaseEvent
 {
     public TodoItemEntity TodoItem { get; }

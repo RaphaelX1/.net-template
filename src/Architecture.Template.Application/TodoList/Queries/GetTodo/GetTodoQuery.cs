@@ -1,5 +1,3 @@
-﻿using MediatR;
-
-namespace Application.TodoList.Queries.GetTodo;
+﻿namespace Application.TodoList.Queries.GetTodo;
 
 public record class GetTodoQuery : IRequest<TodosVm>;

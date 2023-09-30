@@ -12,7 +12,7 @@ public sealed class DeleteTodoItemCommandHandler : IRequestHandler<DeleteTodoIte
     public async Task<Unit> Handle(DeleteTodoItemCommand request, CancellationToken cancellationToken)
     {
 
-        var entity = await _todoItemRepository.SelectAsync(x => x.Id == request.Id,cancellationToken);
+        var entity = await _todoItemRepository.SelectAsync(x => x.Id == request.Id, cancellationToken);
 
         Guard.Against.NotFound(request.Id, entity, nameof(entity.Id));
 

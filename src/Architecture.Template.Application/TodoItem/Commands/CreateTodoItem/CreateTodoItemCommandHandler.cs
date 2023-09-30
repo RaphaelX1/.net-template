@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Domain.Entities;
-using Domain.Events;
+﻿using Domain.Events;
 using Domain.Interfaces.Repository;
 
 namespace Application.TodoItem.Commands.CreateTodoItem;

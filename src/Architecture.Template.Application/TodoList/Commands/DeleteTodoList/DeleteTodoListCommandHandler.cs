@@ -1,7 +1,4 @@
-﻿using Application.Common.Exceptions;
-using Domain.Entities;
-using Domain.Interfaces.Repository;
-using MediatR;
+﻿using Domain.Interfaces.Repository;
 
 namespace Application.TodoList.Commands.DeleteTodoList;
 

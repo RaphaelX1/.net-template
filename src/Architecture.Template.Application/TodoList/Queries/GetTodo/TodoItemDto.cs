@@ -1,6 +1,4 @@
 ﻿using Application.Common.Mappings;
-using AutoMapper;
-using Domain.Entities;
 
 namespace Application.TodoList.Queries.GetTodo;
 
