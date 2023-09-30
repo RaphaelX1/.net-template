@@ -20,8 +20,7 @@ public class LoggingBehaviour<TRequest> : IRequestPreProcessor<TRequest> where T
 
         if (!string.IsNullOrEmpty(userId))
         {
-            //TODO: ver como adicionar o nome do usuario aqui
-            //userName = await _identityService.GetUserNameAsync(userId);
+            
             userName = string.Empty;
         }
 
