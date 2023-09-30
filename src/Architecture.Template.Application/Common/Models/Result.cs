@@ -1,4 +1,4 @@
-﻿namespace Architecture.Template.Application.Common.Models;
+﻿namespace Application.Common.Models;
 
 public class Result
 {

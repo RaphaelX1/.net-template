@@ -1,4 +1,4 @@
-﻿namespace Architecture.Template.Application.Common.Exceptions;
+﻿namespace Application.Common.Exceptions;
 
 public class ForbiddenAccessException : Exception
 {

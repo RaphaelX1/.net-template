@@ -1,9 +1,9 @@
-﻿using Architecture.Template.Application.Common.Exceptions;
-
+﻿using Application.Common.Exceptions;
+using Ardalis.GuardClauses;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 
-namespace Architecture.Template.WebApi.Filters;
+namespace WebApi.Filters;
 
 public class ApiExceptionFilterAttribute : ExceptionFilterAttribute
 {

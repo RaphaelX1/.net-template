@@ -1,5 +1,5 @@
-﻿global using Architecture.Template.Domain.Common;
-global using Architecture.Template.Domain.Entities;
-global using Architecture.Template.Domain.Enums;
-global using Architecture.Template.Domain.Exceptions;
-global using Architecture.Template.Domain.ValueObjects;
+﻿global using Domain.Common;
+global using Domain.Entities;
+global using Domain.Enums;
+global using Domain.Exceptions;
+global using Domain.ValueObjects;

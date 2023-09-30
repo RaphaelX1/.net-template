@@ -1,8 +1,4 @@
-﻿namespace Architecture.Template.Application.TodoList.Queries.GetTodos;
+﻿namespace Application.TodoList.Queries.GetTodo;
 
-public class PriorityLevelDto
-{
-    public int Value { get; set; }
-
-    public string? Name { get; set; }
-}
+public record class PriorityLevelDto(int Value,
+    string? Name);

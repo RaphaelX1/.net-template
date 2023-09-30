@@ -1,11 +1,11 @@
-﻿using Architecture.Template.Application.TodoItem.Commands.CreateTodoItem;
-using Architecture.Template.Application.TodoItem.Commands.DeleteTodoItem;
-using Architecture.Template.Application.TodoItem.Commands.UpdateTodoItem;
-using Architecture.Template.Application.TodoItem.Commands.UpdateTodoItemDetail;
-using Architecture.Template.WebApi.Common;
+﻿using Application.TodoItem.Commands.CreateTodoItem;
+using Application.TodoItem.Commands.DeleteTodoItem;
+using Application.TodoItem.Commands.UpdateTodoItem;
+using Application.TodoItem.Commands.UpdateTodoItemDetail;
 using Microsoft.AspNetCore.Mvc;
+using WebApi.Common;
 
-namespace Architecture.Template.WebApi.Controllers;
+namespace WebApi.Controllers;
 
 //TODO: voltar quando fazer teste de autorização
 //[Authorize]
@@ -52,7 +52,7 @@ public class TodoItemController : ApiControllerBase
     [HttpDelete("{id}")]
     public async Task<ActionResult> Delete(Guid id)
     {
-        await Mediator.Send(new DeleteTodoItemCommand { Id = id });
+        await Mediator.Send(new DeleteTodoItemCommand(id));
 
         return NoContent();
     }

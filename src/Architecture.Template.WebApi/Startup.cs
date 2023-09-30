@@ -1,14 +1,14 @@
 ﻿using System.Text.Json.Serialization;
-using Architecture.Template.Application.DependencyInjection;
-using Architecture.Template.Infrastructure.Context;
-using Architecture.Template.Infrastructure.DependencyInjection;
-using Architecture.Template.WebApi.Filters;
+using Application;
 using FluentValidation.AspNetCore;
+using Infrastructure.Context;
+using Infrastructure.DependencyInjection;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Identity.Web;
+using WebApi.Filters;
 
-namespace Architecture.Template.WebApi;
+namespace WebApi;
 
 public class Startup
 {

@@ -1,0 +1,26 @@
+﻿using Application.Common.Exceptions;
+using Domain.Entities;
+using Domain.Interfaces.Repository;
+using MediatR;
+
+namespace Application.TodoList.Commands.UpdateTodoList;
+
+public class UpdateTodoListCommandHandler : IRequestHandler<UpdateTodoListCommand>
+{
+    private readonly ITodoListRepository _todoListRepository;
+
+    public UpdateTodoListCommandHandler(ITodoListRepository todoListRepository) =>
+        _todoListRepository = todoListRepository ?? throw new ArgumentNullException(nameof(todoListRepository));
+
+    public async Task<Unit> Handle(UpdateTodoListCommand request, CancellationToken cancellationToken)
+    {
+        var entity = await _todoListRepository.SelectAsync(x => x.Id == request.Id, cancellationToken);
+
+        Guard.Against.NotFound(request.Id, entity, nameof(entity));
+        entity.Title = request.Title;
+
+        await _todoListRepository.UpdateAsync(entity, cancellationToken);
+
+        return Unit.Value;
+    }
+}

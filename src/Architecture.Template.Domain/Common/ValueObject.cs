@@ -1,4 +1,4 @@
-﻿namespace Architecture.Template.Domain.Common;
+﻿namespace Domain.Common;
 
 // Learn more: https://docs.microsoft.com/en-us/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/implement-value-objects
 public abstract class ValueObject
@@ -11,7 +11,7 @@ public abstract class ValueObject
         return left?.Equals(right!) != false;
     }
 
-    protected static bool NotEqualOperator(ValueObject left, ValueObject right) => !(EqualOperator(left, right));
+    protected static bool NotEqualOperator(ValueObject left, ValueObject right) => !EqualOperator(left, right);
 
     protected abstract IEnumerable<object> GetEqualityComponents();
 

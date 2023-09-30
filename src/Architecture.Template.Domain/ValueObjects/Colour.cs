@@ -1,4 +1,6 @@
-﻿namespace Architecture.Template.Domain.ValueObjects;
+﻿using Domain.Common;
+
+namespace Domain.ValueObjects;
 
 public class Colour : ValueObject
 {

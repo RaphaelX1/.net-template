@@ -1,10 +1,10 @@
-﻿using Architecture.Template.Application.Common.Mappings;
-using Architecture.Template.Domain.Entities;
+﻿using Application.Common.Mappings;
 using AutoMapper;
+using Domain.Entities;
 
-namespace Architecture.Template.Application.TodoList.Queries.GetTodos;
+namespace Application.TodoList.Queries.GetTodo;
 
-public class TodoItemDto : IMapFrom<TodoItemEntity>
+public record class TodoItemDto : IMapFrom<TodoItemEntity>
 {
     public Guid Id { get; set; }
 

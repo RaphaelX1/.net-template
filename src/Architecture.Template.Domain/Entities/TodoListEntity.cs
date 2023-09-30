@@ -1,4 +1,7 @@
-﻿namespace Architecture.Template.Domain.Entities;
+﻿using Domain.Common;
+using Domain.ValueObjects;
+
+namespace Domain.Entities;
 
 public class TodoListEntity : BaseAuditableEntity
 {

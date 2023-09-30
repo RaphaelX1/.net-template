@@ -1,7 +1,7 @@
-﻿using Architecture.Template.Domain.Interfaces.Repository;
+﻿using Domain.Interfaces.Repository;
 using FluentValidation;
 
-namespace Architecture.Template.Application.TodoList.Commands.CreateTodoList;
+namespace Application.TodoList.Commands.CreateTodoList;
 
 public class CreateTodoListCommandValidator : AbstractValidator<CreateTodoListCommand>
 {
@@ -9,7 +9,7 @@ public class CreateTodoListCommandValidator : AbstractValidator<CreateTodoListCo
 
     public CreateTodoListCommandValidator(ITodoListRepository todoListRepository)
     {
-        this.todoListRepository = todoListRepository ?? throw new ArgumentNullException(nameof(todoListRepository));
+        todoListRepository = todoListRepository ?? throw new ArgumentNullException(nameof(todoListRepository));
 
         RuleFor(v => v.Title)
             .NotEmpty().WithMessage("Title is required.")

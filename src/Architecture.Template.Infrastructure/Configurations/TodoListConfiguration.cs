@@ -1,8 +1,8 @@
-﻿using Architecture.Template.Domain.Entities;
+﻿using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Architecture.Template.Infrastructure.Configurations;
+namespace Infrastructure.Configurations;
 
 public class TodoListConfiguration : IEntityTypeConfiguration<TodoListEntity>
 {

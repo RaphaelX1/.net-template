@@ -1,5 +1,4 @@
-using Architecture.Template.WebApi;
-
+using WebApi;
 
 var host = CreateHostBuilder(args).Build();
 host.Run();

@@ -1,7 +1,5 @@
 ﻿using MediatR;
 
-namespace Architecture.Template.Application.TodoList.Queries.GetTodos;
+namespace Application.TodoList.Queries.GetTodo;
 
-public class GetTodoQuery : IRequest<TodosVm>
-{
-}
+public record class GetTodoQuery : IRequest<TodosVm>;

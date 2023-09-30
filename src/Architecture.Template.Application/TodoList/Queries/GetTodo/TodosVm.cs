@@ -1,4 +1,4 @@
-﻿namespace Architecture.Template.Application.TodoList.Queries.GetTodos;
+﻿namespace Application.TodoList.Queries.GetTodo;
 
 public class TodosVm
 {

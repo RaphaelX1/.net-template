@@ -1,15 +1,15 @@
-﻿using Architecture.Template.Domain.Interfaces.Repository;
+﻿using Domain.Interfaces.Repository;
 using FluentValidation;
 
-namespace Architecture.Template.Application.TodoList.Commands.UpdateTodoList;
+namespace Application.TodoList.Commands.UpdateTodoList;
 
 public class UpdateTodoListCommandValidator : AbstractValidator<UpdateTodoListCommand>
 {
-    private readonly ITodoListRepository todoListRepository;
+    private readonly ITodoListRepository _todoListRepository;
 
     public UpdateTodoListCommandValidator(ITodoListRepository todoListRepository)
     {
-        this.todoListRepository = todoListRepository ?? throw new ArgumentNullException(nameof(todoListRepository));
+        _todoListRepository = todoListRepository ?? throw new ArgumentNullException(nameof(todoListRepository));
 
         ApplyRules();
     }
@@ -23,7 +23,7 @@ public class UpdateTodoListCommandValidator : AbstractValidator<UpdateTodoListCo
 
     public async Task<bool> BeUniqueTitle(UpdateTodoListCommand model, string title, CancellationToken cancellationToken)
     {
-        var listCollection = await todoListRepository.SelectAllAsync(l => l.Id != model.Id, cancellationToken);
+        var listCollection = await _todoListRepository.SelectAllAsync(l => l.Id != model.Id, cancellationToken);
         return listCollection.ToList().All(l => l.Title != title);//TODO: melhorar isso aqui usando o Exist
     }
 }

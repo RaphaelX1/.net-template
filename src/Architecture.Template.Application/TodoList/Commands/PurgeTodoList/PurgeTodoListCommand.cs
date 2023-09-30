@@ -1,7 +1,3 @@
-﻿using MediatR;
+﻿namespace Application.TodoList.Commands.PurgeTodoList;
 
-namespace Architecture.Template.Application.TodoList.Commands.PurgeTodoList;
-
-public class PurgeTodoListCommand : IRequest
-{
-}
+public record class PurgeTodoListCommand : IRequest;

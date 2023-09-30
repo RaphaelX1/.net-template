@@ -1,6 +1,8 @@
-﻿using Hdn.Core.Architecture.Domain.Events;
+﻿using Domain.Common;
+using Domain.Enums;
+using Domain.Events;
 
-namespace Architecture.Template.Domain.Entities;
+namespace Domain.Entities;
 
 public class TodoItemEntity : BaseAuditableEntity
 {

@@ -1,10 +1,6 @@
 ﻿using MediatR;
 
-namespace Architecture.Template.Application.TodoList.Commands.UpdateTodoList;
+namespace Application.TodoList.Commands.UpdateTodoList;
 
-public class UpdateTodoListCommand : IRequest
-{
-    public Guid Id { get; set; }
-
-    public string? Title { get; set; }
-}
+public record class UpdateTodoListCommand(Guid Id,
+                                    string? Title) : IRequest;

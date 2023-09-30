@@ -1,9 +1,9 @@
-﻿using Architecture.Template.Application.Common.Mappings;
-using Architecture.Template.Domain.Entities;
+﻿using Application.Common.Mappings;
+using Domain.Entities;
 
-namespace Architecture.Template.Application.TodoList.Queries.GetTodos;
+namespace Application.TodoList.Queries.GetTodo;
 
-public class TodoListDto : IMapFrom<TodoListEntity>
+public record class TodoListDto : IMapFrom<TodoListEntity>
 {
     public TodoListDto()
     {

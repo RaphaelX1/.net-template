@@ -1,8 +1,3 @@
-﻿using MediatR;
+﻿namespace Application.TodoList.Commands.CreateTodoList;
 
-namespace Architecture.Template.Application.TodoList.Commands.CreateTodoList;
-
-public class CreateTodoListCommand : IRequest<Guid>
-{
-    public string? Title { get; set; }
-}
+public record class CreateTodoListCommand(string? Title) : IRequest<Guid>;

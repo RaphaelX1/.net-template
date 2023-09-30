@@ -1,90 +1,87 @@
 ﻿using System.Linq.Expressions;
-using Architecture.Template.Domain.Common;
-using Architecture.Template.Infrastructure.Context;
+using Domain.Common;
+using Infrastructure.Context;
 using Microsoft.EntityFrameworkCore;
 
-namespace Architecture.Template.Infrastructure.Common;
+namespace Infrastructure.Common;
 public partial class BaseRepository<T> : IBaseRepository<T> where T : BaseAuditableEntity
 {
-    protected readonly ApplicationDbContext context;
-    protected readonly DbSet<T> dataset;
+    protected readonly ApplicationDbContext _context;
+    protected readonly DbSet<T> _dataset;
     public BaseRepository(ApplicationDbContext context)
     {
-        this.context = context ?? throw new ArgumentNullException(nameof(context));
-        dataset = context.Set<T>();
+        _context = context ?? throw new ArgumentNullException(nameof(context));
+        _dataset = context.Set<T>();
     }
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="id">id of the item</param>
-    /// <returns>false for not found item and true if completed the delete</returns>
-    public async Task<bool> DeleteAsync(Expression<Func<T, bool>> predicate, CancellationToken cancellationToken = default)
-    {
-        var result = await dataset.SingleOrDefaultAsync(predicate, cancellationToken);
-        if (result == null)
-            return false;
-
-        dataset.Remove(result);
-        await context.SaveChangesAsync(cancellationToken);
-        return true;
-    }
-    public async Task<bool> DeleteRangeAsync(IEnumerable<T> itemCollection, CancellationToken cancellationToken = default)
-    {
-        dataset.RemoveRange(itemCollection);
-        await context.SaveChangesAsync(cancellationToken);
-        return true;
-    }
-
-    public async Task<bool> ExistAsync(Expression<Func<T, bool>> predicate, CancellationToken cancellationToken = default) =>
-        await dataset.AnyAsync(predicate, cancellationToken);
-
-    public async Task<T> InsertAsync(T item, CancellationToken cancellationToken)
-    {
-        await dataset.AddAsync(item, cancellationToken);
-        await context.SaveChangesAsync(cancellationToken);
-
-        return item;
-    }
-
-    public async Task<IEnumerable<T>> InsertRangeAsync(IEnumerable<T> item, CancellationToken cancellationToken = default)
-    {
-        await dataset.AddRangeAsync(item, cancellationToken);
-        await context.SaveChangesAsync(cancellationToken);
-        return item;
-    }
-
     public async Task<T> SelectAsync(Expression<Func<T, bool>> predicate, CancellationToken cancellationToken = default) =>
-        await dataset.AsNoTracking()
-                     .SingleOrDefaultAsync(predicate, cancellationToken);
+        await _dataset.AsNoTracking()
+                 .SingleOrDefaultAsync(predicate, cancellationToken);//TODO: se der match mais de um vai da ruim
 
-    public async Task<IEnumerable<T>> SelectAllAsync(Expression<Func<T, bool>> predicate = null, CancellationToken cancellationToken = default)
+    public async Task<IEnumerable<T>> SelectAllAsync(Expression<Func<T, bool>>? predicate = null, CancellationToken cancellationToken = default)
     {
         return predicate == null
-            ? await dataset.AsNoTracking()
+            ? await _dataset.AsNoTracking()
                            .ToListAsync(cancellationToken)//TODO: ver de retornar IList ou mudar ToList pra outra forma de enemeração
-            : await dataset.AsNoTracking()
+            : await _dataset.AsNoTracking()
                            .Where(predicate)
                            .ToListAsync();
     }
-
-    public async Task<T> UpdateAsync(T item, CancellationToken cancellationToken = default)
+    public async Task<bool> ExistAsync(Expression<Func<T, bool>> predicate, CancellationToken cancellationToken = default) =>
+       await _dataset.AnyAsync(predicate, cancellationToken);
+    public async Task<T> InsertAsync(T entity, CancellationToken cancellationToken)
     {
-        context.Update(item);
-        await context.SaveChangesAsync(cancellationToken);
-        return item;
+        await _dataset.AddAsync(entity, cancellationToken);
+        await _context.SaveChangesAsync(cancellationToken);
+
+        return entity;
+    }
+    public async Task<IEnumerable<T>> InsertRangeAsync(IEnumerable<T> entity, CancellationToken cancellationToken = default)
+    {
+        await _dataset.AddRangeAsync(entity, cancellationToken);
+        await _context.SaveChangesAsync(cancellationToken);
+        return entity;
+    }
+    public async Task<T> UpdateAsync(T entity, CancellationToken cancellationToken = default)
+    {
+        _context.Update(entity);
+        await _context.SaveChangesAsync(cancellationToken);
+        return entity;
+    }
+    public async Task<T> DeleteAsync(T entity, CancellationToken cancellationToken = default)
+    {
+        if (entity is not T)
+            throw new ArgumentNullException(nameof(entity));
+
+        _dataset.Remove(entity);
+        await _context.SaveChangesAsync(cancellationToken);
+        return entity;
+    }
+    public async Task<bool> DeleteRangeAsync(IEnumerable<T> entityCollection, CancellationToken cancellationToken = default)
+    {
+        if (entityCollection is not T)
+            throw new ArgumentNullException(nameof(entityCollection));
+
+        _dataset.RemoveRange(entityCollection);
+        await _context.SaveChangesAsync(cancellationToken);
+        return true;
+    }
+    public async Task PurgeAsync(CancellationToken cancellationToken = default)
+    {
+        _context.RemoveRange(_dataset);
+        await _context.SaveChangesAsync(cancellationToken);
     }
 
     #region DisposePattern
-    private bool disposed = false;
+    private bool _disposed = false;
 
     protected virtual void Dispose(bool disposing)
     {
-        if (!disposed)
+        if (!_disposed)
         {
             if (disposing)
-                context.Dispose();
+                _context.Dispose();
         }
-        disposed = true;
+        _disposed = true;
     }
 
     public void Dispose()
@@ -92,7 +89,7 @@ public partial class BaseRepository<T> : IBaseRepository<T> where T : BaseAudita
         Dispose(true);
         GC.SuppressFinalize(this);
     }
+
+
     #endregion
 }
-
-

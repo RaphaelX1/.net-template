@@ -1,11 +1,11 @@
-﻿using Architecture.Template.Domain.Interfaces.Repository;
-using Architecture.Template.Infrastructure.Context;
-using Architecture.Template.Infrastructure.Repository;
+﻿using Domain.Interfaces.Repository;
+using Infrastructure.Context;
+using Infrastructure.Repository;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Architecture.Template.Infrastructure.DependencyInjection;
+namespace Infrastructure.DependencyInjection;
 
 public static class InfrastructureServiceCollectionExtensions
 {

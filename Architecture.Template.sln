@@ -11,15 +11,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Infrastructure", "2 - I
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Tests", "3 - Tests", "{F6E98737-E2BF-4C64-8625-2D28053CDE08}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Architecture.Template.Application", "src\Architecture.Template.Application\Architecture.Template.Application.csproj", "{9F52924B-7E6B-4204-907E-D0A91DE0F1BC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "src\Architecture.Template.Application\Application.csproj", "{9F52924B-7E6B-4204-907E-D0A91DE0F1BC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Architecture.Template.Domain", "src\Architecture.Template.Domain\Architecture.Template.Domain.csproj", "{A5E48AD8-9FAB-4484-B12B-34B92A8E8B2D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "src\Architecture.Template.Domain\Domain.csproj", "{A5E48AD8-9FAB-4484-B12B-34B92A8E8B2D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Architecture.Template.WebApi", "src\Architecture.Template.WebApi\Architecture.Template.WebApi.csproj", "{033A67DC-892C-4451-8BF8-E18A5096C281}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi", "src\Architecture.Template.WebApi\WebApi.csproj", "{033A67DC-892C-4451-8BF8-E18A5096C281}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Architecture.Template.Infrastructure", "src\Architecture.Template.Infrastructure\Architecture.Template.Infrastructure.csproj", "{48CAA396-B888-45E5-A561-BD226A45F2B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "src\Architecture.Template.Infrastructure\Infrastructure.csproj", "{48CAA396-B888-45E5-A561-BD226A45F2B1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Architecture.Template.Application.Tests", "test\Architecture.Template.Application.Tests\Architecture.Template.Application.Tests.csproj", "{106192CD-11A5-4D20-93F9-1FA10734DAEA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application.UnitTests", "test\Architecture.Template.Application.Tests\Application.UnitTests.csproj", "{106192CD-11A5-4D20-93F9-1FA10734DAEA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

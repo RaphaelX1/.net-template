@@ -1,9 +1,9 @@
-﻿using Architecture.Template.Domain.Entities;
-using Architecture.Template.Domain.Interfaces.Repository;
-using Architecture.Template.Infrastructure.Common;
-using Architecture.Template.Infrastructure.Context;
+﻿using Domain.Entities;
+using Domain.Interfaces.Repository;
+using Infrastructure.Common;
+using Infrastructure.Context;
 
-namespace Architecture.Template.Infrastructure.Repository;
+namespace Infrastructure.Repository;
 
 internal class TodoListRepository : BaseRepository<TodoListEntity>, ITodoListRepository
 {

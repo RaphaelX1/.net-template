@@ -1,8 +1,8 @@
 ﻿using System.Reflection;
-using Architecture.Template.Domain.Common;
+using Domain.Common;
 using Microsoft.EntityFrameworkCore;
 
-namespace Architecture.Template.Infrastructure.Context;
+namespace Infrastructure.Context;
 
 public class ApplicationDbContext : DbContext
 {

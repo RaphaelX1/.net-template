@@ -1,11 +1,11 @@
-﻿using Architecture.Template.Application.TodoList.Commands.CreateTodoList;
-using Architecture.Template.Application.TodoList.Commands.DeleteTodoList;
-using Architecture.Template.Application.TodoList.Commands.UpdateTodoList;
-using Architecture.Template.Application.TodoList.Queries.GetTodos;
-using Architecture.Template.WebApi.Common;
+﻿using Application.TodoList.Commands.CreateTodoList;
+using Application.TodoList.Commands.UpdateTodoList;
+using Application.TodoList.Queries.GetTodo;
+using Application.TodoList.Commands.DeleteTodoList;
 using Microsoft.AspNetCore.Mvc;
+using WebApi.Common;
 
-namespace Architecture.Template.WebApi.Controllers;
+namespace WebApi.Controllers;
 
 //TODO: voltar quando fazer teste de autorização
 //[Authorize]
@@ -47,7 +47,7 @@ public class TodoListController : ApiControllerBase
     [HttpDelete("{id}")]
     public async Task<ActionResult> Delete(Guid id)
     {
-        await Mediator.Send(new DeleteTodoListCommand { Id = id });
+        await Mediator.Send(new DeleteTodoListCommand(id));
 
         return NoContent();
     }

@@ -1,6 +1,7 @@
-﻿using Hdn.Core.Architecture.Domain.Common;
+﻿using Domain.Common;
+using Domain.Entities;
 
-namespace Hdn.Core.Architecture.Domain.Events;
+namespace Domain.Events;
 public class TodoItemCompletedEvent : BaseEvent
 {
     public TodoItemEntity TodoItem { get; }
